@@ -1,16 +1,25 @@
 # Docker-WordPress-SSL
+
 WordPress + MySQL + phpMyAdmin + Nginx + SSL - CMS - Docker-compose
 
-Ver en "localhost:80" ó "tudominio.com"
+## Config
 
-phpMyAdmin - ver en "localhost:8080"
+Copy "example.env" to ".env" and set environment variables.
 
-Modificar las líneas 23, 24 y 79 de docker-compose.yaml:
+## Start
 
-23  VIRTUAL_HOST: tudominio.com        #debe ser un dominio válido y DNS apuntando a este servidor
+docker-compose up -d
 
-24  LETSENCRYPT_HOST: tudominio.com    #debe ser un dominio válido y DNS apuntando a este servidor   
+## Login
 
-79  DEFAULT_EMAIL: admin@gmail.com     #debe ser un email válido   
+Login "localhost:80" or "example.com"
+
+phpMyAdmin - "localhost:8080"
+
+
+
+
+# Credits
+Based on the Repository [https://github.com/jmlcas/Docker-WordPress-SSL]
 
 

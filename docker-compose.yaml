@@ -1,7 +1,6 @@
-version: "3"
+version: "3.7"
 
 services:
-
 
   wordpress:
     image: wordpress:latest       
@@ -20,8 +19,8 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}  
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
-      VIRTUAL_HOST: tudominio.com        #debe ser un dominio válido y DNS apuntando a este servidor
-      LETSENCRYPT_HOST: tudominio.com    #debe ser un dominio válido y DNS apuntando a este servidor   
+      VIRTUAL_HOST: ${DOMAIN_NAME}        #debe ser un dominio valido y DNS apuntando a este servidor
+      LETSENCRYPT_HOST: ${DOMAIN_NAME}    #debe ser un dominio valido y DNS apuntando a este servidor   
 
   mysql:
     image: mariadb:latest
@@ -76,7 +75,7 @@ services:
       - vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
     environment:
-      - DEFAULT_EMAIL=admin@gmail.com     #debe ser un email válido
+      - DEFAULT_EMAIL=${LETSENCRYPT_EMAIL}     #debe ser un email valido
       - NGINX_PROXY_CONTAINER=nginx-proxy
 
 volumes:
